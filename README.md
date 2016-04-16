@@ -2,12 +2,12 @@
 
 南京大学本科生毕业论文LaTex模板
 
-## 作者：
+## 作者
 
 张楚珩 zhangchuheng123 (at) live (dot) com
 个人主页 http://sealzhang.tk
 
-## 鸣谢：
+## 鸣谢
 
 * 本模板由胡星海的南京大学硕士博士学文论文模板改编而来。
 https://github.com/Haixing-Hu/nju-thesis
