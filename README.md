@@ -21,6 +21,8 @@ http://wenku.baidu.com/link?url=cR7kFKypWbJ-3LDAyMqY2OIGvClbKxIjOKTnRuQjLye-lY9h
 
 * 本科毕业生毕业论文没找到相应的明文要求，宽容度较大，本模板应该能符合教务处的规范；
 
+* 限于精力未提供详细使用说明，使用说明可以参照胡星海项目中使用说明。由于原项目 1）未提供本科毕设相关设置；2）文件较多比较繁杂，因此修改并精简得到此模板。 
+
 ## 下载与使用
 
 github提供打包下载
