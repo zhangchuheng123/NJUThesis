@@ -1,3 +1,13 @@
+%%
+%% Copyright (C) 2016, Zhang Chuheng.
+%% Department of Physics, Nanjing University.
+%% 
+%% Home Page: http://sealzhang.tk
+%% 
+%%	Thanks to Hu Xinghai http://haixing-hu.github.io/nju-thesis/
+%%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %  符合 GB/T 7714-2005 规范的 BibTeX 样式文件

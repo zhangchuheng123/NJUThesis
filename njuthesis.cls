@@ -4,6 +4,7 @@
 %% 
 %% Home Page: http://sealzhang.tk
 %% 
+
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{njuthesis.cls}
 \newif\ifnjut@adobefonts\njut@adobefontstrue
