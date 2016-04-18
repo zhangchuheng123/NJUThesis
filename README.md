@@ -13,7 +13,7 @@
 https://github.com/Haixing-Hu/nju-thesis
 
 * 本模板参考南京大学本科生毕业论文模板（Word）。
-http://wenku.baidu.com/link?url=cR7kFKypWbJ-3LDAyMqY2OIGvClbKxIjOKTnRuQjLye-lY9hkvVElUDvEAWcn4BbVNpDkbQaAWfx6ctSPHcTFdiLealeO0J5NnmIU2BRmQC
+[Word版链接（百度文库）](http://wenku.baidu.com/link?url=cR7kFKypWbJ-3LDAyMqY2OIGvClbKxIjOKTnRuQjLye-lY9hkvVElUDvEAWcn4BbVNpDkbQaAWfx6ctSPHcTFdiLealeO0J5NnmIU2BRmQC)
 
 ## 声明
 
@@ -31,7 +31,14 @@ github提供打包下载
 
 ## 特别提醒
 
-PDF中故意留出一些空白页，这是为了让大章的起始页为偶数页。
+* PDF中故意留出一些空白页，这是为了让大章的起始页为偶数页。
+
+* 本人测试环境为MacOS+MacTex，在不同的操作系统下还未详细测试。
+
+* 在windows有时出现字体无法加载的情况，请在tex文件中添加选项winfonts，即引用的时候写成
+```
+\documentclass[winfonts]{njuthesis}
+```
 
 ## 相关项目
 
