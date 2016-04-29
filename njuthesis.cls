@@ -12,6 +12,7 @@
 \newif\ifnjut@linuxfonts\njut@linuxfontsfalse
 \newif\ifnjut@macfonts\njut@macfontsfalse
 \newif\ifnjut@backinfo\njut@backinfofalse
+\newif\ifnjut@title@twolinetitle\njut@title@twolinetitlefalse
 \DeclareOption{adobefonts}{\njut@adobefontstrue
   \njut@winfontsfalse
   \njut@linuxfontsfalse
@@ -683,6 +684,7 @@
 \renewcommand*{\title}[1]{%
   \renewcommand{\njut@value@title}{#1}}
 \newcommand*{\titlea}[1]{%
+  \njut@title@twolinetitletrue
   \renewcommand{\njut@value@titlea}{#1}}
 \newcommand*{\titleb}[1]{%
   \renewcommand{\njut@value@titleb}{#1}}
@@ -835,7 +837,11 @@
     \bf\kaishu\zihao{3}
     \def\tabcolsep{1pt}
     \def\arraystretch{1.5}
-    \ifdefempty{\njut@value@title}{\njut@covertable@twolinetitle}{\njut@covertable@onelinetitle}
+    \ifnjut@title@twolinetitle
+      \njut@covertable@twolinetitle
+    \else
+      \njut@covertable@onelinetitle
+    \fi
     \egroup}\\
     \vskip \stretch{1}
     {\bf\kaishu\zihao{4}\njut@value@date}
