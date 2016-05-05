@@ -63,6 +63,10 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{shortvrb}
 \RequirePackage{xltxtra}
+\RequirePackage{algorithmic}
+\usepackage{algorithm}
+\floatname{algorithm}{算法}
+\numberwithin{algorithm}{chapter}
 \RequirePackage[CJKnumber,CJKchecksingle]{xeCJK}
 \RequirePackage{CJKnumb}
 \defaultfontfeatures{Mapping=tex-text}
@@ -374,7 +378,7 @@
   \item[\hskip\labelsep\textbf{#1}\@addpunct{:}]\ignorespaces
 }{\endtrivlist\@endpefalse}
 
-\newtheorem{algorithm}{\njut@cap@algorithm}[chapter]
+%\newtheorem{algorithm}{\njut@cap@algorithm}[chapter]
 \renewcommand*{\thedefinition}{\dashnumber{\thechapter}{\arabic{definition}}}
 \renewcommand*{\thetheorem}{\dashnumber{\thechapter}{\arabic{theorem}}}
 \renewcommand*{\theaxiom}{\dashnumber{\thechapter}{\arabic{axiom}}}
@@ -448,10 +452,8 @@
 \renewcommand{\thesubsection}{\thesection\thinspace.\thinspace\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
 \captionsetup{font=small}
-\captionsetup[table]{position=above}
+\captionsetup[table]{position=below}
 \captionsetup[figure]{position=below}
-\floatstyle{plaintop}
-\restylefloat{table}
 \renewcommand*{\baselinestretch}{1.38}
 \let\convertergy@oldtabular\tabular
 \let\convertergy@endoldtabular\endtabular
@@ -792,14 +794,18 @@
 }
 \newcommand*{\njut@covertable@onelinetitle}{
   \begin{tabular}{p{7.3em}c}
+      \makebox[7em][s]{\njut@cap@cover@department}
+      & \njutunderline[310pt]{\njut@value@department}\\
+      \makebox[7em][s]{\njut@cap@cover@major}
+      & \njutunderline[310pt]{\njut@value@major}\\
       \makebox[7em][s]{\njut@cap@cover@title}
       & \njutunderline[310pt]{\njut@value@title}\\
       \makebox[7em][s]{\njut@cap@cover@author}
       & \njutunderline[310pt]{\njut@value@author}\\
+      \makebox[7em][s]{\njut@cap@cover@grade}
+      & \njutunderline[310pt]{\njut@value@grade}\\
       \makebox[7em][s]{\njut@cap@cover@studentid}
       & \njutunderline[310pt]{\njut@value@studentid}\\
-      \makebox[7em][s]{\njut@cap@cover@major}
-      & \njutunderline[310pt]{\njut@value@major}\\
       \makebox[7em][s]{\njut@cap@cover@supervisor}
       & \njutunderline[310pt]{\njut@value@supervisor}\\
       \makebox[7em][s]{\njut@cap@cover@researchfield}
@@ -827,8 +833,8 @@
   \pdfbookmark[0]{\njut@cap@cover}{cover}
   \begin{center}
     \vskip 10mm
-    \includegraphics[width=1.96cm]{\njut@cap@institute@logo} \\
-    \includegraphics[height=2cm]{\njut@cap@institute@name} \\
+    \includegraphics[width=1.96cm]{\njut@cap@institute@logo}\\
+    \includegraphics[height=2cm]{\njut@cap@institute@name}\\
     \vskip 8mm
     {\bf\kaishu\zihao{1}\makebox[10em][s]{\njut@cap@cover@thesis}}\\
     \vskip 5mm
