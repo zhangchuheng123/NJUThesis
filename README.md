@@ -33,7 +33,7 @@ github提供打包下载
 
 * PDF中故意留出一些空白页，这是为了让大章的起始页为偶数页。
 
-* 本人测试环境为MacOS+MacTex，在不同的操作系统下还未详细测试。
+* Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows系统请使用TexLive(TeXworks)-->XeLatex，其他环境下还未测试。
 
 * 不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数。如果遇到字体无法加载的问题请确认系统装有相应字体。
 
