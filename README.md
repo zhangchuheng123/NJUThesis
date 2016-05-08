@@ -35,7 +35,11 @@ github提供打包下载
 
 * Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows系统请使用TexLive(TeXworks)-->XeLatex，其他环境下还未测试。
 
+* 点击这里下载TexLive：[TexLive下载地址][TexLive]
+
 * 不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数。如果遇到字体无法加载的问题请确认系统装有相应字体。
+
+[TexLive]: https://www.tug.org/texlive/
 
 
 ## 相关项目
