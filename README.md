@@ -38,7 +38,7 @@ github提供打包下载
 * 点击这里下载TexLive：[TexLive下载地址][TexLive]
 
 * 不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数。如果遇到字体无法加载的问题请确认系统装有相应字体。不同平台下请反注释相应的代码，例如在windows下，应为：
-```
+```latex
 %% 如需Adobe字体请用（默认）
 %\documentclass[adobefonts]{njuthesis}
 %% MacOS系统请用
