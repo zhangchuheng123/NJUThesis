@@ -43,7 +43,7 @@
 \graphicspath{{./}{./img/}{./fig/}{./image/}{./figure/}{./picture/}{./imgs/}{./figs/}{./images/}{./figures/}{./pictures/}}
 \RequirePackage{caption}
 \RequirePackage{float}
-\RequirePackage{subfig}
+\RequirePackage{subcaption}
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{booktabs}
