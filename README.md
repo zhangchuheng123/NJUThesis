@@ -58,8 +58,12 @@ github提供打包下载
 * [南京大学科技报告XeLaTeX模板][nju-report]
 * [符合国家标准《GB/T 7714-2005 文后参考文献著录规则》的BibTeX样式文件][gbt7714-2005-bst]
 * [中文书刊排版相关标准和规范][typesetting-standard]
+* [南京大学教务处2016届本科毕业论文（设计、作品）装订和上传指南][nju2016guide]
+* [南京大学教务处2016届本科生毕业论文工作手册下载地址（含格式说明）][nju2016requirement]
 
 [nju-report]: https://github.com/Haixing-Hu/nju-report
 [gbt7714-2005-bst]: https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style
 [typesetting-standard]: https://github.com/Haixing-Hu/typesetting-standard
+[nju2016guide]:http://jw.nju.edu.cn/ContentList.aspx?MType=PX-WZSY-ZXTZ&FType=WZSY&id=20160512-11105679~780c005e
+[nju2016requirement]:http://jw.nju.edu.cn/kindeditor/attached/file/20151211/20151211112521_7828.rar
 
