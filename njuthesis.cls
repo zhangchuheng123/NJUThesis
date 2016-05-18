@@ -64,6 +64,9 @@
 \RequirePackage{shortvrb}
 \RequirePackage{xltxtra}
 \RequirePackage{algorithmic}
+\RequirePackage{ulem}
+\normalem
+\RequirePackage{pdfpages}
 \usepackage{algorithm}
 \floatname{algorithm}{算法}
 \numberwithin{algorithm}{chapter}
@@ -405,7 +408,7 @@
 \renewcommand*{\chaptername}{\njut@cap@chaptername}
 \renewcommand*{\appendixname}{\njut@cap@appendixname}
 \titleformat{\chapter}[hang]
-            {\centering\zihao{1}\bfseries}
+            {\centering\zihao{2}\bfseries}
             {\chaptertitlename}{1em}{}
 \titlespacing{\chapter}
              {0pt}
@@ -452,7 +455,7 @@
 \renewcommand{\thesubsection}{\thesection\thinspace.\thinspace\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
 \captionsetup{font=small}
-\captionsetup[table]{position=below}
+\captionsetup[table]{position=top}
 \captionsetup[figure]{position=below}
 \renewcommand*{\baselinestretch}{1.38}
 \let\convertergy@oldtabular\tabular
@@ -704,6 +707,8 @@
   \renewcommand{\njut@value@grade}{#1}}
 \newcommand*{\supervisor}[1]{%
   \renewcommand{\njut@value@supervisor}{#1}}
+  \newcommand*{\supervisortitle}[1]{%
+  \renewcommand{\njut@value@supervisortitle}{#1}}
 \newcommand*{\supervisortelphone}[1]{%
   \renewcommand{\njut@value@supervisortelphone}{#1}}
 \newcommand*{\major}[1]{%
@@ -793,23 +798,33 @@
   \cleardoublepage
 }
 \newcommand*{\njut@covertable@onelinetitle}{
-  \begin{tabular}{p{7.3em}c}
-      \makebox[7em][s]{\njut@cap@cover@department}
-      & \njutunderline[310pt]{\njut@value@department}\\
-      \makebox[7em][s]{\njut@cap@cover@major}
-      & \njutunderline[310pt]{\njut@value@major}\\
-      \makebox[7em][s]{\njut@cap@cover@title}
-      & \njutunderline[310pt]{\njut@value@title}\\
-      \makebox[7em][s]{\njut@cap@cover@author}
-      & \njutunderline[310pt]{\njut@value@author}\\
-      \makebox[7em][s]{\njut@cap@cover@grade}
-      & \njutunderline[310pt]{\njut@value@grade}\\
-      \makebox[7em][s]{\njut@cap@cover@studentid}
-      & \njutunderline[310pt]{\njut@value@studentid}\\
-      \makebox[7em][s]{\njut@cap@cover@supervisor}
-      & \njutunderline[310pt]{\njut@value@supervisor}\\
-      \makebox[7em][s]{\njut@cap@cover@researchfield}
-      & \njutunderline[310pt]{\njut@value@researchfield}\\
+  \begin{tabular}{p{5em}c}
+    \makebox[5em][s]{\njut@cap@cover@department}
+    & \njutunderline[310pt]{\njut@value@department}\\
+    \makebox[5em][s]{\njut@cap@cover@major}
+    & \njutunderline[310pt]{\njut@value@major}\\
+    \makebox[5em][s]{\njut@cap@cover@title}
+    & \njutunderline[310pt]{\njut@value@title}
+  \end{tabular}
+  \begin{tabular}{p{5em}cp{5em}c}
+    \makebox[5em][s]{\njut@cap@cover@grade}
+    & \njutunderline[113pt]{\njut@value@grade}
+    & \makebox[5em][s]{\njut@cap@cover@studentid}
+    & \njutunderline[113pt]{\njut@value@studentid}\\
+  \end{tabular}
+  \begin{tabular}{p{5em}c}
+    \makebox[5em][s]{\njut@cap@cover@author}
+    & \njutunderline[310pt]{\njut@value@author}
+  \end{tabular}
+  \begin{tabular}{p{5em}cp{5em}c}
+    \makebox[5em][s]{\njut@cap@cover@supervisor}
+    & \njutunderline[113pt]{\njut@value@supervisor}
+    & \makebox[5em][s]{\njut@cap@cover@supervisortitle}
+    & \njutunderline[113pt]{\njut@value@supervisortitle}\\
+  \end{tabular}
+  \begin{tabular}{p{7.5em}c}
+    \makebox[7.5em][s]{\njut@cap@cover@submitdate}
+    & \njutunderline[270pt]{\njut@value@submitdate}\\
   \end{tabular}
 }
 \newcommand*{\njut@covertable@twolinetitle}{
@@ -830,13 +845,15 @@
 }
 \renewcommand*{\maketitle}{%
   \thispagestyle{empty}
+  \pagenumbering{Roman}
   \pdfbookmark[0]{\njut@cap@cover}{cover}
+  % Start 
+  \vskip 10mm
+  \includegraphics[width=2.2cm]{\njut@cap@institute@logo}\\
   \begin{center}
-    \vskip 10mm
-    \includegraphics[width=1.96cm]{\njut@cap@institute@logo}\\
-    \includegraphics[height=2cm]{\njut@cap@institute@name}\\
-    \vskip 8mm
-    {\bf\kaishu\zihao{1}\makebox[10em][s]{\njut@cap@cover@thesis}}\\
+    \includegraphics[height=2.2cm]{\njut@cap@institute@name}\\
+    \vskip 12mm
+    {\songti\zihao{0}\makebox[8em][s]{\textbf{\njut@cap@cover@thesis}}}\\
     \vskip 5mm
     \vskip\stretch{1}
     {\bgroup
@@ -849,8 +866,7 @@
       \njut@covertable@onelinetitle
     \fi
     \egroup}\\
-    \vskip \stretch{1}
-    {\bf\kaishu\zihao{4}\njut@value@date}
+    \vskip 10mm
   \end{center}
   \cleardoublepage
 }
@@ -880,19 +896,53 @@
   \normalfont
   \cleardoublepage
 }
+% 本科生过程管理四张表
+\newcommand*{\controlpage}{%
+\includepdfmerge{controlpage.pdf,1-4}
+}
 \newcommand*{\abstracttitlea}[1]{%
   \renewcommand{\njut@value@abstract@titlea}{#1}%
 }
 \newcommand*{\abstracttitleb}[1]{%
   \renewcommand{\njut@value@abstract@titleb}{#1}%
 }
+% 摘要
 \newenvironment{abstract}{%
   \thispagestyle{empty}
   \pdfbookmark[0]{\njut@cap@abstract}{abstract}
-  \vspace{5mm}
   \begin{center}
-    {\heiti\zihao{-3}\njut@cap@abstract@abstractname}
-  \end{center}%
+    \kaishu\zihao{-2}\uuline{\textbf{南京大学本科生毕业论文(设计、作品)中文摘要}}
+  \end{center}
+  {\bgroup
+    \bf\kaishu\zihao{4}
+    \def\tabcolsep{0pt}
+    \def\arraystretch{0.8}
+    \begin{tabular}{p{5em}c}
+      \makebox[5em][s]{题目：}
+      & \njutunderline[320pt]{\njut@value@title}\\
+    \end{tabular}
+    \\
+    \begin{tabular}{p{2.5em}cp{2.5em}cp{2.5em}cp{2.5em}c}
+      \makebox[2em][s]{院系：}
+      & \njutunderline{\, \njut@value@department \,}
+      & \makebox[2em][s]{专业：}
+      & \njutunderline{\, \njut@value@major \,}
+      & \makebox[2em][s]{年级：}
+      & \njutunderline{\, \njut@value@grade \,}
+      & \makebox[2em][s]{姓名：}
+      & \njutunderline{\, \njut@value@author \,}
+    \end{tabular}
+    \\
+    \begin{tabular}{p{12em}c}
+      \makebox[5em][s]{指导老师（姓名、职称）：}
+      & \njutunderline[220pt]{\njut@value@supervisor \njut@value@supervisortitle}\\
+    \end{tabular}
+    \\
+    \begin{tabular}{p{5em}}
+      \makebox[5em][s]{摘要：}
+    \end{tabular}
+    \egroup
+  }
   \normalsize\par%
 }{%
 \cleardoublepage
@@ -908,13 +958,22 @@
 \newcommand*{\englishabstracttitleb}[1]{%
   \renewcommand{\njut@value@abstract@en@titleb}{#1}%
 }
+% 英文摘要
 \newenvironment{englishabstract}{%
   \thispagestyle{empty}
   \pdfbookmark[0]{\njut@cap@abstract@en}{englishabstract}
-  \vspace{5mm}
   \begin{center}
-    {\bf\zihao{-3}\njut@cap@abstract@en@abstractname}
-  \end{center}%
+      \kaishu\zihao{-2}\uuline{\textbf{南京大学本科生毕业论文(设计、作品)英文摘要}}
+  \end{center}
+  {
+    \bgroup
+    THESIS: \njut@value@en@title \\
+    DEPARTMENT: \njut@value@en@department \\
+    UNDERGRADUATE: \njut@value@en@author \\
+    MENTOR: \njut@value@en@supervisor \\
+    ABSTRACT:
+    \egroup
+  }
   \normalsize\par%
 }{%
 \cleardoublepage
