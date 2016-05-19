@@ -943,15 +943,16 @@
     \end{tabular}
     \egroup
   }
-  \normalsize\par%
+  \kaishu\normalsize\par%
 }{%
 \cleardoublepage
 }
 \newcommand{\keywords}[1]{%
   \renewcommand*{\njut@value@abstract@keywords}{#1}%
   \par\vspace{2ex}\noindent%
-  {\bf\njut@cap@abstract@keywordsname{：}}~{#1}%
+  {\bf\kaishu\zihao{4}\makebox[4em][s]{\njut@cap@abstract@keywordsname{：}} }~{#1}%
 }
+% 英文
 \newcommand*{\englishabstracttitlea}[1]{%
   \renewcommand{\njut@value@abstract@en@titlea}{#1}%
 }
@@ -981,7 +982,7 @@
 \newcommand{\englishkeywords}[1]{%
   \renewcommand*{\njut@value@abstract@en@keywords}{#1}%
   \par\vspace{2ex}\noindent%
-  {\bf\njut@cap@abstract@en@keywordsname{:}}~~{#1}%
+  {\njut@cap@abstract@en@keywordsname{:}}~~{#1}%
 }
 \newenvironment{preface}{%
   \nchapter{\njut@cap@preface}
