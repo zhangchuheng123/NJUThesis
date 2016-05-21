@@ -408,42 +408,42 @@
 \renewcommand*{\chaptername}{\njut@cap@chaptername}
 \renewcommand*{\appendixname}{\njut@cap@appendixname}
 \titleformat{\chapter}[hang]
-            {\centering\zihao{2}\bfseries}
+            {\centering\zihao{-2}\bfseries}
             {\chaptertitlename}{1em}{}
 \titlespacing{\chapter}
              {0pt}
              {*4}
              {*3}
 \titleformat{\section}[hang]
-            {\zihao{-2}\bfseries}
+            {\zihao{3}\bfseries}
             {\thesection}{1em}{}
 \titlespacing{\section}
              {0pt}
              {*3.5}
              {*2.3}
 \titleformat{\subsection}[hang]
-            {\zihao{3}\bfseries}
+            {\zihao{-3}\bfseries}
             {\thesubsection}{1em}{}
 \titlespacing{\subsection}
              {0pt}
              {*3}
              {*1.5}
 \titleformat{\subsubsection}[hang]
-            {\zihao{-3}\bfseries}
+            {\zihao{4}\bfseries}
             {\thesubsubsection}{1em}{}
 \titlespacing{\subsubsection}
              {0pt}
              {*2.5}
              {*1.5}
 \titleformat{\paragraph}[hang]
-            {\zihao{4}\bfseries}
+            {\zihao{-4}\bfseries}
             {}{0em}{}
 \titlespacing{\paragraph}
              {0pt}
              {*2}
              {*1}
 \titleformat{\subparagraph}[hang]
-            {\zihao{-4}\bfseries}
+            {\zihao{5}\bfseries}
             {}{0em}{}
 \titlespacing{\subparagraph}
              {0pt}
@@ -476,22 +476,28 @@
 }
 \renewcommand*{\indent}{\njut@CJK@setfontspace\parindent2\njut@CJK@chardimen}
 \AtBeginDocument{\indent}
+% >>>>>>>>>>>>>>>>>>>>>>>>>>页码<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 \fancypagestyle{plain}{%
-   \fancyhead{}                       
+   \fancyhead{}               
+   \fancyfoot[C]{\zihao{5}\thepage}        
    \renewcommand{\headrulewidth}{0pt} % and the header line
    \renewcommand{\footrulewidth}{0pt} % and the footer line
 }
-\fancyfoot{}
+\fancyhead{}
+\fancyfoot[C]{\zihao{5}\thepage}
 \renewcommand{\footrulewidth}{0pt}
-\fancyhead[LE,RO]{\thepage}
-\renewcommand{\headrulewidth}{1pt}
-\fancyhead[RE]{\leftmark}
-\fancyhead[LO]{%
- \ifthenelse{\equal{\rightmark}{}}% if \rightmark is empty
-            {\leftmark}%
-            {\rightmark}%
-}
+\renewcommand{\headrulewidth}{0pt}
+\linespread{1.5}
+%\fancyhead[LE,RO]{\thepage}
+%\renewcommand{\headrulewidth}{1pt}
+%\fancyhead[RE]{\leftmark}
+%\fancyhead[LO]{%
+%\ifthenelse{\equal{\rightmark}{}}% if \rightmark is empty
+%            {\leftmark}%
+%            {\rightmark}%
+%}
 \pagestyle{fancy}
+
 \renewcommand{\chaptermark}[1]{\markboth{%
  \bfseries\if@mainmatter\chaptertitlename\hspace{1em}\fi{#1}%
 }{}}
@@ -900,23 +906,26 @@
 \newcommand*{\controlpage}{%
 \includepdfmerge{controlpage.pdf,1-4}
 }
-\newcommand*{\abstracttitlea}[1]{%
-  \renewcommand{\njut@value@abstract@titlea}{#1}%
-}
-\newcommand*{\abstracttitleb}[1]{%
-  \renewcommand{\njut@value@abstract@titleb}{#1}%
-}
+% \newcommand*{\abstracttitlea}[1]{%
+%   \renewcommand{\njut@value@abstract@titlea}{#1}%
+% }
+% \newcommand*{\abstracttitleb}[1]{%
+%   \renewcommand{\njut@value@abstract@titleb}{#1}%
+% }
 % 摘要
 \newenvironment{abstract}{%
-  \thispagestyle{empty}
+  \thispagestyle{plain}
+  \pagenumbering{Roman}
   \pdfbookmark[0]{\njut@cap@abstract}{abstract}
   \begin{center}
     \kaishu\zihao{-2}\uuline{\textbf{南京大学本科生毕业论文(设计、作品)中文摘要}}
   \end{center}
+  \begin{spacing}{1.3}
   {\bgroup
     \bf\kaishu\zihao{4}
     \def\tabcolsep{0pt}
     \def\arraystretch{0.8}
+    \noindent
     \begin{tabular}{p{5em}c}
       \makebox[5em][s]{题目：}
       & \njutunderline[320pt]{\njut@value@title}\\
@@ -943,7 +952,8 @@
     \end{tabular}
     \egroup
   }
-  \kaishu\normalsize\par%
+  \end{spacing}
+  \kaishu\zihao{-4}\par%
 }{%
 \cleardoublepage
 }
@@ -952,16 +962,15 @@
   \par\vspace{2ex}\noindent%
   {\bf\kaishu\zihao{4}\makebox[4em][s]{\njut@cap@abstract@keywordsname{：}} }~{#1}%
 }
-% 英文
-\newcommand*{\englishabstracttitlea}[1]{%
-  \renewcommand{\njut@value@abstract@en@titlea}{#1}%
-}
-\newcommand*{\englishabstracttitleb}[1]{%
-  \renewcommand{\njut@value@abstract@en@titleb}{#1}%
-}
+% \newcommand*{\englishabstracttitlea}[1]{%
+%   \renewcommand{\njut@value@abstract@en@titlea}{#1}%
+% }
+% \newcommand*{\englishabstracttitleb}[1]{%
+%   \renewcommand{\njut@value@abstract@en@titleb}{#1}%
+% }
 % 英文摘要
 \newenvironment{englishabstract}{%
-  \thispagestyle{empty}
+  \thispagestyle{plain}
   \pdfbookmark[0]{\njut@cap@abstract@en}{englishabstract}
   \begin{center}
       \kaishu\zihao{-2}\uuline{\textbf{南京大学本科生毕业论文(设计、作品)英文摘要}}
@@ -975,7 +984,7 @@
     ABSTRACT:
     \egroup
   }
-  \normalsize\par%
+  \zihao{-4}\par%
 }{%
 \cleardoublepage
 }
@@ -990,30 +999,30 @@
 \newenvironment{acknowledgement}{%
   \nchapter{\njut@cap@acknowledgementname}
 }{}
-\newenvironment{resume}{%
-  \nchapter{\njut@cap@resume@chaptername}
-}{}
-\newenvironment{authorinfo}{%
-  \paragraph*{\njut@cap@resume@authorinfo}
-}{}
-\newenvironment{education}{%
-  \paragraph*{\njut@cap@resume@education}
-  \begin{description}[labelindent=0em, leftmargin=8em, style=sameline]
-}{%
-  \end{description}
-}
-\newenvironment{publications}{%
-  \paragraph*{\njut@cap@resume@publications}
-  \begin{enumerate}[label=\arabic*., labelindent=0em, leftmargin=*]
-}{%
-  \end{enumerate}
-}
-\newenvironment{projects}{%
-  \paragraph*{\njut@cap@resume@projects}
-  \begin{enumerate}[label=\arabic*., labelindent=0em, leftmargin=*]
-}{%
-  \end{enumerate}
-}
+% \newenvironment{resume}{%
+%   \nchapter{\njut@cap@resume@chaptername}
+% }{}
+% \newenvironment{authorinfo}{%
+%   \paragraph*{\njut@cap@resume@authorinfo}
+% }{}
+% \newenvironment{education}{%
+%   \paragraph*{\njut@cap@resume@education}
+%   \begin{description}[labelindent=0em, leftmargin=8em, style=sameline]
+% }{%
+%   \end{description}
+% }
+% \newenvironment{publications}{%
+%   \paragraph*{\njut@cap@resume@publications}
+%   \begin{enumerate}[label=\arabic*., labelindent=0em, leftmargin=*]
+% }{%
+%   \end{enumerate}
+% }
+% \newenvironment{projects}{%
+%   \paragraph*{\njut@cap@resume@projects}
+%   \begin{enumerate}[label=\arabic*., labelindent=0em, leftmargin=*]
+% }{%
+%   \end{enumerate}
+% }
 \newcommand*{\njut@cap@datefield}{%
 \njutunderline[1cm]{}{\njut@cap@year}%
 \njutunderline[1cm]{}{\njut@cap@month}%
@@ -1079,32 +1088,7 @@
   \hline
 \end{tabular*}
 }
-\newcommand*{\makelicense}{%
-  \thispagestyle{empty}
-  \nchapter{\njut@cap@license@chaptername}
-  \njut@license@makedeclaration
-  \par\vspace{1em}
-  \njut@license@maketable
-  \par\vspace{1em}
-  \noindent\njut@cap@license@securitylevel\par
-  \noindent\ifthenelse{\equal{\njut@value@nlc@securitylevel}
-                             {\njut@cap@nlc@openlevel}}
-                      {{\zihao{-4}$\CheckedBox$}}
-                      {{\zihao{4}$\Square$}}%
-  {\njut@cap@license@public}\par
-  \noindent\ifthenelse{\equal{\njut@value@nlc@securitylevel}
-                             {\njut@cap@nlc@openlevel}}
-                      {{\zihao{4}$\Square$}}
-                      {{\zihao{-4}$\CheckedBox$}}%
-  {\njut@cap@license@secret}%
-  \njut@cap@datefield\hspace{0.5em}%
-  \njut@cap@to\hspace{0.5em}%
-  \njut@cap@datefield\par
-  \vspace{1em}
-  \noindent\njut@cap@license@remark%
-  \normalfont
-  \cleardoublepage
-}
+
 \newcommand{\njuthesis}{\texttt{NJU-Thesis}}
 \newcommand{\zhdash}{\kern0.3ex\rule[0.8ex]{2em}{0.1ex}\kern0.3ex}
 \newcommand{\cell}[3]{\parbox[c][#2][c]{#1}{\makebox[#1]{#3}}}
